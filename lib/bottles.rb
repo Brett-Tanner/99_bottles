@@ -1,14 +1,14 @@
 class Bottles
   def verse(n)
     if n.zero?
-      "No more bottles of beer on the wall, " \
-      "no more bottles of beer.\n" \
-      "Go to the store and buy some more, " \
+      "#{quantity(n).capitalize} #{container(n)} of beer on the wall, " \
+      "#{quantity(n)} #{container(n)} of beer.\n" \
+      "#{action(n)}" \
       "99 bottles of beer on the wall.\n"
     else
-      "#{quantity(n)} #{container(n)} of beer on the wall, " \
+      "#{quantity(n).capitalize} #{container(n)} of beer on the wall, " \
       "#{quantity(n)} #{container(n)} of beer.\n" \
-      "Take #{pronoun(n)} down and pass it around, " \
+      "#{action(n)}" \
       "#{quantity(n - 1)} #{container(n - 1)} of beer on the wall.\n"
     end
   end
@@ -23,6 +23,14 @@ class Bottles
 
   private
 
+  def action(n)
+    if n.zero?
+      "Go to the store and buy some more, "
+    else
+      "Take #{pronoun(n)} down and pass it around, "
+    end
+  end
+
   def container(n)
     n == 1 ? 'bottle' : 'bottles'
   end
@@ -32,6 +40,6 @@ class Bottles
   end
 
   def quantity(n)
-    n.zero? ? 'no more' : n
+    n.zero? ? 'no more' : n.to_s
   end
 end
