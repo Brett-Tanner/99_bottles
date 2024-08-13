@@ -1,16 +1,9 @@
 class Bottles
   def verse(n)
-    if n.zero?
-      "#{quantity(n).capitalize} #{container(n)} of beer on the wall, " \
-      "#{quantity(n)} #{container(n)} of beer.\n" \
-      "#{action(n)}" \
-      "99 bottles of beer on the wall.\n"
-    else
-      "#{quantity(n).capitalize} #{container(n)} of beer on the wall, " \
-      "#{quantity(n)} #{container(n)} of beer.\n" \
-      "#{action(n)}" \
-      "#{quantity(n - 1)} #{container(n - 1)} of beer on the wall.\n"
-    end
+    "#{quantity(n).capitalize} #{container(n)} of beer on the wall, " \
+    "#{quantity(n)} #{container(n)} of beer.\n" \
+    "#{action(n)}" \
+    "#{quantity(successor(n))} #{container(successor(n))} of beer on the wall.\n"
   end
 
   def verses(start_verse, end_verse)
@@ -41,5 +34,9 @@ class Bottles
 
   def quantity(n)
     n.zero? ? 'no more' : n.to_s
+  end
+
+  def successor(n)
+    n.zero? ? 99 : n - 1
   end
 end
