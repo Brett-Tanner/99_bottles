@@ -1,21 +1,15 @@
 class Bottles
   def verse(n)
-    case n
-    when 0
+    if n.zero?
       "No more bottles of beer on the wall, " \
       "no more bottles of beer.\n" \
       "Go to the store and buy some more, " \
       "99 bottles of beer on the wall.\n"
-    when 1
-      "#{n} #{container(n)} of beer on the wall, " \
-      "#{n} #{container(n)} of beer.\n" \
-      "Take #{pronoun(n)} down and pass it around, " \
-      "no more bottles of beer on the wall.\n"
     else
-      "#{n} #{container(n)} of beer on the wall, " \
-      "#{n} #{container(n)} of beer.\n" \
+      "#{quantity(n)} #{container(n)} of beer on the wall, " \
+      "#{quantity(n)} #{container(n)} of beer.\n" \
       "Take #{pronoun(n)} down and pass it around, " \
-      "#{n - 1} #{container(n - 1)} of beer on the wall.\n"
+      "#{quantity(n - 1)} #{container(n - 1)} of beer on the wall.\n"
     end
   end
 
@@ -30,10 +24,14 @@ class Bottles
   private
 
   def container(n)
-    n == 1 ? "bottle" : "bottles"
+    n == 1 ? 'bottle' : 'bottles'
   end
 
   def pronoun(n)
-    n == 1 ? "it" : "one"
+    n == 1 ? 'it' : 'one'
+  end
+
+  def quantity(n)
+    n.zero? ? 'no more' : n
   end
 end
