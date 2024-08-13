@@ -1,11 +1,27 @@
 class Bottles
-  SECOND_LAST = "Take it down and pass it around, no more bottles of beer on the wall.\n"
-  LAST = "No more bottles of beer on the wall, no more bottles of beer.\nGo to the store and buy some more, 99 bottles of beer on the wall.\n"
-
   def verse(n)
-    return LAST if n.zero?
-
-    verse_one(n) + verse_two(n - 1)
+    case n
+    when 0
+      "No more bottles of beer on the wall, " \
+      "no more bottles of beer.\n" \
+      "Go to the store and buy some more, " \
+      "99 bottles of beer on the wall.\n"
+    when 1
+      "1 bottle of beer on the wall, " \
+      "1 bottle of beer.\n" \
+      "Take it down and pass it around, " \
+      "no more bottles of beer on the wall.\n"
+    when 2
+      "2 bottles of beer on the wall, " \
+      "2 bottles of beer.\n" \
+      "Take one down and pass it around, " \
+      "1 bottle of beer on the wall.\n"
+    else
+      "#{n} bottles of beer on the wall, " \
+      "#{n} bottles of beer.\n" \
+      "Take one down and pass it around, " \
+      "#{n - 1} bottles of beer on the wall.\n"
+    end
   end
 
   def verses(start_verse, end_verse)
@@ -14,27 +30,5 @@ class Bottles
 
   def song
     verses(99, 0)
-  end
-
-  private
-
-  def verse_one(n)
-    line_one = "#{n} #{pluralized_bottle(n)} of beer on the wall, "
-    line_two = "#{n} #{pluralized_bottle(n)} of beer.\n"
-
-    line_one + line_two
-  end
-
-  def verse_two(n)
-    return SECOND_LAST if n.zero?
-
-    line_one = 'Take one down and pass it around, '
-    line_two = "#{n} #{pluralized_bottle(n)} of beer on the wall.\n"
-
-    line_one + line_two
-  end
-
-  def pluralized_bottle(n)
-    n > 1 ? 'bottles' : 'bottle'
   end
 end
