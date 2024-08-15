@@ -1,3 +1,5 @@
+require_relative './bottle_number'
+
 class Bottles
   def verse(n)
     "#{quantity(n).capitalize} #{container(n)} of beer on the wall, " \
@@ -17,26 +19,18 @@ class Bottles
   private
 
   def action(n)
-    if n.zero?
-      "Go to the store and buy some more, "
-    else
-      "Take #{pronoun(n)} down and pass it around, "
-    end
+    BottleNumber.new(n).action
   end
 
   def container(n)
-    n == 1 ? 'bottle' : 'bottles'
-  end
-
-  def pronoun(n)
-    n == 1 ? 'it' : 'one'
+    BottleNumber.new(n).container
   end
 
   def quantity(n)
-    n.zero? ? 'no more' : n.to_s
+    BottleNumber.new(n).quantity
   end
 
   def successor(n)
-    n.zero? ? 99 : n - 1
+    BottleNumber.new(n).successor
   end
 end
