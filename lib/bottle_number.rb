@@ -5,6 +5,17 @@ class BottleNumber
     @number = number
   end
 
+  def self.for(n)
+    case n
+    when 0
+      BottleNumber0
+    when 1
+      BottleNumber1
+    else
+      BottleNumber
+    end.new(n)
+  end
+
   def action
     "Take #{pronoun} down and pass it around"
   end
@@ -14,7 +25,7 @@ class BottleNumber
   end
 
   def successor
-    number - 1
+    BottleNumber.for(number - 1)
   end
 
   def to_s
