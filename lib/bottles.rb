@@ -2,10 +2,13 @@ require_relative './bottle_number'
 
 class Bottles
   def verse(n)
-    "#{quantity(n).capitalize} #{container(n)} of beer on the wall, " \
-    "#{quantity(n)} #{container(n)} of beer.\n" \
-    "#{action(n)}" \
-    "#{quantity(successor(n))} #{container(successor(n))} of beer on the wall.\n"
+    bottle_number = BottleNumber.new(n)
+    next_bottle_number = BottleNumber.new(bottle_number.successor)
+
+    "#{bottle_number.quantity.capitalize} #{bottle_number.container} of beer on the wall, " \
+    "#{bottle_number.quantity} #{bottle_number.container} of beer.\n" \
+    "#{bottle_number.action}" \
+    "#{next_bottle_number.quantity} #{next_bottle_number.container} of beer on the wall.\n"
   end
 
   def verses(start_verse, end_verse)
@@ -14,23 +17,5 @@ class Bottles
 
   def song
     verses(99, 0)
-  end
-
-  private
-
-  def action(n)
-    BottleNumber.new(n).action
-  end
-
-  def container(n)
-    BottleNumber.new(n).container
-  end
-
-  def quantity(n)
-    BottleNumber.new(n).quantity
-  end
-
-  def successor(n)
-    BottleNumber.new(n).successor
   end
 end
