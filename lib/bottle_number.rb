@@ -13,19 +13,25 @@ class BottleNumber
     end
   end
 
-  def container
-    number == 1 ? 'bottle' : 'bottles'
-  end
-
   def pronoun
     number == 1 ? 'it' : 'one'
   end
 
-  def quantity
-    number.zero? ? 'no more' : number.to_s
-  end
-
   def successor
     number.zero? ? 99 : number - 1
+  end
+
+  def to_s
+    "#{quantity} #{container}"
+  end
+
+  private
+
+  def container
+    number == 1 ? 'bottle' : 'bottles'
+  end
+
+  def quantity
+    number.zero? ? 'no more' : number.to_s
   end
 end
