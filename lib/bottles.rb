@@ -1,5 +1,6 @@
 require_relative './bottle_number'
 require_relative './bottle_number_0'
+require_relative './bottle_number_1'
 
 class Bottles
   def verse(n)
@@ -23,8 +24,11 @@ class Bottles
   private
 
   def bottle_number_for(n)
-    if n.zero?
+    case n
+    when 0
       BottleNumber0
+    when 1
+      BottleNumber1
     else
       BottleNumber
     end.new(n)

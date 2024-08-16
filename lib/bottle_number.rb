@@ -10,7 +10,7 @@ class BottleNumber
   end
 
   def pronoun
-    number == 1 ? 'it' : 'one'
+    'one'
   end
 
   def successor
@@ -24,7 +24,7 @@ class BottleNumber
   private
 
   def container
-    number == 1 ? 'bottle' : 'bottles'
+    'bottles'
   end
 
   def quantity
