@@ -7,9 +7,9 @@ class BottleNumber
 
   def action
     if number.zero?
-      "Go to the store and buy some more, "
+      "Go to the store and buy some more"
     else
-      "Take #{pronoun} down and pass it around, "
+      "Take #{pronoun} down and pass it around"
     end
   end
 
