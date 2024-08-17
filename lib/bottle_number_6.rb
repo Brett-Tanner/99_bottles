@@ -1,6 +1,4 @@
 class BottleNumber6 < BottleNumber
-  BottleNumber.register(self)
-
   def self.handles?(n)
     n == 6
   end

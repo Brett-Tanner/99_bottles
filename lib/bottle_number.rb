@@ -13,12 +13,17 @@ class BottleNumber
     true
   end
 
+  def self.inherited(candidate)
+    self.register(candidate)
+  end
+
   def self.registry
     @registry ||= [BottleNumber]
   end
 
   def self.register(candidate)
     registry.prepend(candidate)
+    p registry
   end
 
   def action

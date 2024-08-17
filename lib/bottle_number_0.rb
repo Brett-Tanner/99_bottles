@@ -1,6 +1,4 @@
 class BottleNumber0 < BottleNumber
-  BottleNumber.register(self)
-
   def action
     "Go to the store and buy some more"
   end
