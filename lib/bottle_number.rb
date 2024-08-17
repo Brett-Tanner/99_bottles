@@ -6,16 +6,19 @@ class BottleNumber
   end
 
   def self.for(n)
-    case n
-    when 0
-      BottleNumber0
-    when 1
-      BottleNumber1
-    when 6
-      BottleNumber6
-    else
-      BottleNumber
-    end.new(n)
+    @registry.find { |candidate| candidate.handles?(n) }.new(n)
+  end
+
+  def self.handles?(_)
+    true
+  end
+
+  def self.registry
+    @registry ||= [BottleNumber]
+  end
+
+  def self.register(candidate)
+    registry.prepend(candidate)
   end
 
   def action
