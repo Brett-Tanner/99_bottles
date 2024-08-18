@@ -1,8 +1,14 @@
 require_relative './bottle_verse'
 
 class Bottles
+  attr_reader :verse_template
+
+  def initialize(verse_template: BottleVerse)
+    @verse_template = verse_template
+  end
+
   def verse(n)
-    BottleVerse.new(n).lyrics
+    verse_template.new(n).lyrics
   end
 
   def verses(start_verse, end_verse)
