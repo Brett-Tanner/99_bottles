@@ -23,7 +23,6 @@ class BottleNumber
 
   def self.register(candidate)
     registry.prepend(candidate)
-    p registry
   end
 
   def action

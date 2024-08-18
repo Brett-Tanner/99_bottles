@@ -1,16 +1,8 @@
-require_relative './bottle_number'
-require_relative './bottle_number_0'
-require_relative './bottle_number_1'
-require_relative './bottle_number_6'
+require_relative './bottle_verse'
 
 class Bottles
   def verse(n)
-    bottle_number = BottleNumber.for(n)
-
-    "#{bottle_number} of beer on the wall, ".capitalize +
-    "#{bottle_number} of beer.\n" \
-    "#{bottle_number.action}, " \
-    "#{bottle_number.successor} of beer on the wall.\n"
+    BottleVerse.new(n).lyrics
   end
 
   def verses(start_verse, end_verse)
