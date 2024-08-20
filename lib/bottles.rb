@@ -8,7 +8,7 @@ class Bottles
   end
 
   def verse(n)
-    verse_template.new(n).lyrics
+    verse_template.lyrics(n)
   end
 
   def verses(start_verse, end_verse)

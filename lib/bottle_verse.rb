@@ -6,6 +6,10 @@ require_relative './bottle_number_6'
 class BottleVerse
   attr_reader :number
 
+  def self.lyrics(number)
+    new(number).lyrics
+  end
+
   def initialize(number)
     @number = number
   end
