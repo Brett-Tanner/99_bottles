@@ -1,9 +1,7 @@
-require_relative './bottle_verse'
-
 class CountdownSong
   attr_reader :max, :min, :verse_template
 
-  def initialize(verse_template: BottleVerse, max: 99, min: 0)
+  def initialize(verse_template:, max: 99999999999, min: 0)
     @max, @min = max, min
     @verse_template = verse_template
   end

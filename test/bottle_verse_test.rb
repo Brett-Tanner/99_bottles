@@ -4,8 +4,13 @@ require 'minitest/pride'
 
 require_relative '../lib/bottle_verse'
 
-
 class BottleVerseTest < Minitest::Test
+  include VerseRoleTest
+
+  def setup
+    @role_player = BottleVerse
+  end
+
   def test_generic_verse_upper_bound
     expected =
       "99 bottles of beer on the wall, " +

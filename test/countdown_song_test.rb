@@ -1,12 +1,21 @@
 gem 'minitest', '~> 5.4'
 require 'minitest/autorun'
 require 'minitest/pride'
-require_relative '../lib/bottles'
+require_relative '../lib/countdown_song'
+require_relative './verse_role_test'
 require_relative './bottle_verse_test'
 
 class VerseFake
   def self.lyrics(n)
     "This is verse #{n}."
+  end
+end
+
+class VerseFakeTest < Minitest::Test
+  include VerseRoleTest
+
+  def setup
+    @role_player = VerseFake
   end
 end
 
